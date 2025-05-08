@@ -1,0 +1,63 @@
+Security_Features_Library
+    Access_Control
+          Authentication
+            getAuthentication
+            getContext
+            PasswordEncoder
+    Secure_Data_Handling
+          Data_Validation
+            buildDefaultValidatorFactory
+            getValidator
+          State_Synchronization
+            AtomicReference
+
+    Security_Features_Library_Tool
+        Access_Control
+              Authorization
+                AccessControl_doPrivileged_L
+        Cryptography
+              Hashing
+                CryptographicHashing_digest_L
+                CryptographicHashing_getInstance_L
+
+
+
+Security_Features_Custom
+    Access_Control
+          Authentication
+            saveChangedDefaultPassword
+            getAuthentication_Custom
+            givenUserAuthenticatedWith
+            getLoggedUser
+            getLoginName
+            validateCurrentPassword
+            encodePassword
+            setPasswordEncoder
+            getPassword
+            isLdapAuthEnabled
+            DBPasswordEncoderService
+            checkClientTrusted
+            checkServerTrusted
+            getAcceptedIssuers_X509Certificate
+            getLdapAuthEnabled
+          Authorization
+            setupOrderAuthorizationController
+            initOrderAuthorizations
+            loggedUserCanWrite
+            setAlwaysTrust
+            NaiveTrustProvider
+            engineGetTrustManagers
+    Cryptography
+          Hashing
+            hashCode
+    Secure_Data_Handling
+          Trusted_Sources
+            setSaltSource
+            saltSource
+            getSalt
+    System_State_Protection
+          Session_Management
+            getSession
+            getSessionUserLoginName
+
+

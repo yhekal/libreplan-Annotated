@@ -40,7 +40,7 @@ class NotBlockingAutoUpdatedSnapshot<T> implements IAutoUpdatedSnapshot<T> {
 
     private final Callable<T> callable;
 
-    private final AtomicReference<State> currentState;
+    private final AtomicReference<State> currentState; // &line[AtomicReference]
 
     private final String name;
 
@@ -172,7 +172,7 @@ class NotBlockingAutoUpdatedSnapshot<T> implements IAutoUpdatedSnapshot<T> {
         Validate.notNull(name);
         this.name = "*" + name + "*";
         this.callable = callable;
-        this.currentState = new AtomicReference<State>(new NotLaunchState());
+        this.currentState = new AtomicReference<State>(new NotLaunchState()); // &line[AtomicReference]
         this.executionsReport = new ExecutionsReport();
     }
 
@@ -266,7 +266,7 @@ class NotBlockingAutoUpdatedSnapshot<T> implements IAutoUpdatedSnapshot<T> {
 
     private class ExecutionsReport {
 
-        private AtomicReference<Data> data = new AtomicReference<Data>(
+        private AtomicReference<Data> data = new AtomicReference<Data>( // &line[AtomicReference]
                 new Data(0, 0, 0, 0));
 
         public void newData(long timeWaiting, long timeExecuting,

@@ -48,7 +48,7 @@ public class EmailNotificationDAO
 
     @Override
     public List<EmailNotification> getAllByType(EmailTemplateEnum enumeration) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(EmailNotification.class)
                 .add(Restrictions.eq("type", enumeration))
                 .list();
@@ -56,7 +56,7 @@ public class EmailNotificationDAO
 
     @Override
     public List<EmailNotification> getAllByProject(TaskElement taskElement) {
-       return getSession()
+       return getSession() // &line[getSession]
                .createCriteria(EmailNotification.class)
                .add(Restrictions.eq("project", taskElement))
                .list();
@@ -64,7 +64,7 @@ public class EmailNotificationDAO
 
     @Override
     public List<EmailNotification> getAllByTask(TaskElement taskElement) {
-        return getSession()
+        return getSession()// &line[getSession]
                 .createCriteria(EmailNotification.class)
                 .add(Restrictions.eq("task", taskElement))
                 .list();
@@ -75,7 +75,7 @@ public class EmailNotificationDAO
         List<EmailNotification> notifications = list(EmailNotification.class);
 
         for (Object item : notifications) {
-            getSession().delete(item);
+            getSession().delete(item); // &line[getSession]
         }
 
         return list(EmailNotification.class).isEmpty();
@@ -83,16 +83,16 @@ public class EmailNotificationDAO
 
     @Override
     public boolean deleteAllByType(EmailTemplateEnum enumeration) {
-        List<EmailNotification> notifications = getSession()
+        List<EmailNotification> notifications = getSession() // &line[getSession]
                 .createCriteria(EmailNotification.class)
                 .add(Restrictions.eq("type", enumeration))
                 .list();
 
         for (Object item : notifications){
-            getSession().delete(item);
+            getSession().delete(item); // &line[getSession]
         }
 
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(EmailNotification.class)
                 .add(Restrictions.eq("type", enumeration.ordinal()))
                 .list()
@@ -101,9 +101,9 @@ public class EmailNotificationDAO
 
     @Override
     public boolean deleteById(EmailNotification notification) {
-        getSession().delete(notification);
+        getSession().delete(notification); // &line[getSession]
 
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(EmailNotification.class)
                 .add(Restrictions.eq("id", notification.getId()))
                 .uniqueResult() == null;
@@ -114,7 +114,7 @@ public class EmailNotificationDAO
         List<EmailNotification> notifications = getAllByProject(taskElement);
 
         for (Object item : notifications){
-            getSession().delete(item);
+            getSession().delete(item); // &line[getSession]
         }
 
         return getAllByProject(taskElement).isEmpty();
@@ -125,7 +125,7 @@ public class EmailNotificationDAO
         List<EmailNotification> notifications = getAllByTask(taskElement);
 
         for (Object item : notifications){
-            getSession().delete(item);
+            getSession().delete(item); // &line[getSession]
         }
 
         return getAllByTask(taskElement).isEmpty();

@@ -266,7 +266,7 @@ public class OrderFilesController extends GenericForwardComposer {
                             : FilenameUtils.getExtension(media.getName()));
 
                 orderFileModel.setUploadDate(new Date());
-                orderFileModel.setUploader(userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()));
+                orderFileModel.setUploader(userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName())); // &line[getSessionUserLoginName]
                 orderFileModel.setParent(orderElementModel.getOrderElement());
 
                 orderFileModel.confirmSave();

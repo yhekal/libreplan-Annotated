@@ -3,176 +3,195 @@ Calendars
 
 .. contents::
 
-Calendars are entities within the program that define the working capacity of resources. A calendar consists of a series of days throughout the year, with each day divided into available working hours.
+Calendars are the program entities that determine the load capacity of different resources.
+A calendar consists of a series of days in the year with each day divided into available working hours.
 
-For example, a public holiday might have 0 available working hours. Conversely, a typical workday might have 8 hours designated as available working time.
+For example, a public holiday may have 0 hours available and, if the working hours in a workday are 8,
+this is the number of hours that is designated as available time for that day.
 
-There are two primary ways to define the number of working hours in a day:
+There are two ways of informing the system of how many working hours there are in a day:
 
-*   **By Weekday:** This method sets a standard number of working hours for each day of the week. For example, Mondays might typically have 8 working hours.
-*   **By Exception:** This method allows for specific deviations from the standard weekday schedule. For example, Monday, January 30th, might have 10 working hours, overriding the standard Monday schedule.
+* According to weekday. For example, on Mondays people generally work 8 hours.
+* According to exceptions. For example, 10 working hours on Monday 30 January.
 
-Calendar Administration
-=======================
+Administration of calendars
+===========================
 
-The calendar system is hierarchical, allowing you to create base calendars and then derive new calendars from them, forming a tree structure. A calendar derived from a higher-level calendar will inherit its daily schedules and exceptions unless explicitly modified. To effectively manage calendars, it's important to understand the following concepts:
+The calendar system is hierarchical, meaning that base calendars or calendars based on them can be created, thus maintaining a tree structure.
+A calendar based on a calendar from a higher level of the tree will take on the daily duties and exceptions, providing that they have not
+been explicitly modified for the new calendar. The following concepts must be understood to manage calendars:
 
-*   **Day Independence:** Each day is treated independently, and each year has its own set of days. For example, if December 8th, 2009, is a public holiday, this does not automatically mean that December 8th, 2010, is also a public holiday.
-*   **Weekday-Based Working Days:** Standard working days are based on weekdays. For example, if Mondays typically have 8 working hours, then all Mondays in all weeks of all years will have 8 available hours unless an exception is defined.
-*   **Exceptions and Exception Periods:** You can define exceptions or exception periods to deviate from the standard weekday schedule. For example, you can specify a single day or a range of days with a different number of available working hours than the general rule for those weekdays.
+* Each day is independent in itself and each year has different days. For example, if 8 December 2009 is a public holiday, this does not mean that 2010 already has 8 December marked as a public holiday.
+* Working days are based on weekdays. For example, if it is normal to work 8 hours on Mondays, all the Mondays from all the weeks in the different years will have 8 hours available.
+* Exceptions or exception periods can be marked. For example, choosing a specific day or several days which have a different number of hours available than the general rule for those weekdays.
 
 .. figure:: images/calendar-administration.png
    :scale: 50
 
-   Calendar Administration
+   Administration of calendars
 
-Calendar administration is accessible through the "Administration" menu. From there, users can perform the following actions:
+The administration of calendars can be accessed from the procedures on the "Administration" tab. Users can carry out the following procedures from here:
 
-1.  Create a new calendar from scratch.
-2.  Create a calendar derived from an existing one.
-3.  Create a calendar as a copy of an existing one.
-4.  Edit an existing calendar.
+1. Creating a new calendar from scratch.
+2. Creating a calendar based on another one.
+3. Creating a calendar as a copy of another one.
+4. Editing an existing calendar.
 
-Creating a New Calendar
+Creating a new calendar
 -----------------------
 
-To create a new calendar, click the "Create" button. The system will display a form where you can configure the following:
+In order to create a new calendar, users need to click the "Create" button.
+The system then shows a form where users can carry out the following procedures:
 
-*   **Select the Tab:** Choose the tab you want to work on:
+* Choosing the tab they want to work on.
 
-    *   **Marking Exceptions:** Define exceptions to the standard schedule.
-    *   **Working Hours per Day:** Define the standard working hours for each weekday.
+   * Marking exceptions.
+   * Choosing hours worked per day.
 
-*   **Marking Exceptions:** If you select the "Marking Exceptions" option, you can:
+* If users select the marking exceptions option, they can:
+   * Select a specific day on the calendar.
+   * Select the type of exception. The types available are: holidays, illness, strike, public holiday, working holiday.
+   * Select the end date of the exception period (this field does not need to be changed to mark exceptions that only last 1 day).
+   * Mark the number of hours worked during the days of the exception period.
+   * Delete previous exceptions.
 
-    *   Select a specific day on the calendar.
-    *   Select the type of exception. The available types are: holiday, illness, strike, public holiday, and working holiday.
-    *   Select the end date of the exception period. (This field does not need to be changed for single-day exceptions.)
-    *   Define the number of working hours during the days of the exception period.
-    *   Delete previously defined exceptions.
+* If users choose to select the number of hours worked per day, they can:
 
-*   **Working Hours per Day:** If you select the "Working Hours per Day" option, you can:
+   * Mark the hours available for each weekday (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday).
+   * Distribute different weekly hours for the future.
+   * Delete previous hour distribution lists.
 
-    *   Define the available working hours for each weekday (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday).
-    *   Define different weekly hour distributions for future periods.
-    *   Delete previously defined hour distributions.
-
-These options allow users to fully customize calendars according to their specific needs. Click the "Save" button to store any changes made to the form.
+With these procedures, users of the program can fully personalise the calendars according to their needs.
+Users need to click the "Save" button to store changes made to the form.
 
 .. figure:: images/calendar-edition.png
    :scale: 50
 
-   Editing Calendars
+   Editing calendars
 
 .. figure:: images/calendar-exceptions.png
    :scale: 50
 
-   Adding an Exception to a Calendar
+   Adding an exception to calendars
 
-Creating Derived Calendars
---------------------------
+Creating derived calendars
+----------------------------------
 
-A derived calendar is created based on an existing calendar. It inherits all the features of the original calendar, but you can modify it to include different options.
+A derived calendar is a calendar created from another existing one. For example, it has all the features of the original one,
+but users can change it to contain other options.
 
-A common use case for derived calendars is when you have a general calendar for a country, such as Spain, and you need to create a derived calendar to include additional public holidays specific to a region, such as Galicia.
+An example of using derived calendars is when there is a general calendar for Spain, and the creation of a derived calendar
+to include public holidays in Galicia in additional to the ones defined in the general calendar.
 
-It's important to note that any changes made to the original calendar will automatically propagate to the derived calendar, unless a specific exception has been defined in the derived calendar. For example, the calendar for Spain might have an 8-hour working day on May 17th. However, the calendar for Galicia (a derived calendar) might have no working hours on that same day because it's a regional public holiday. If the Spanish calendar is later changed to have 4 available working hours per day for the week of May 17th, the Galician calendar will also change to have 4 available working hours for every day in that week, except for May 17th, which will remain a non-working day due to the defined exception.
+It is important to point out that any change made to the original calendar is made directly to the derived calendar,
+ providing that a specific exception against this was not defined. For example, the calendar for Spain has an 8-hour working day on 17 May,
+ but the calendar for Galicia (a derived calendar) has no working hours on the very same day, as it is a public holiday.
+ If the Spanish calendar was changed to have 4 hours available per day for the week of 17 May, the Galician calendar would also
+ change to have 4 hours available for every day on the same week, except 17 May, which would have no working hours for the reason stated above.
 
 .. figure:: images/calendar-create-derived.png
    :scale: 50
 
-   Creating a Derived Calendar
+   Creating a derived calendar
 
-To create a derived calendar:
+To create a derived calendar in the program, it is necessary to:
 
-*   Go to the *Administration* menu.
-*   Click the *Calendar administration* option.
-*   Select the calendar you want to use as the basis for the derived calendar and click the "Create" button.
-*   The system will display an editing form with the same characteristics as the form used to create a calendar from scratch, except that the proposed exceptions and the working hours per weekday will be based on the original calendar.
+* Go to the *Administration* menu.
+* Click the *Calendar administration* procedure.
+* Choose one of the calendars to be the basis for a derived calendar and click the "Create" button.
+* Once this procedure has been carried out, the system shows an editing form with the same characteristics as the forms used to create forms from scratch, with the difference that the proposed exceptions and the hours per weekday are based on the original calendar.
 
-Creating a Calendar by Copying
+Creating a calendar by copying
 ------------------------------
 
-A copied calendar is an exact duplicate of an existing calendar. It inherits all the features of the original calendar, but you can modify it independently.
+A copied calendar is a calendar created as an exact copy of another existing one. For example, it has all the features of the original one,
+but users can also change it to contain other options.
 
-The key difference between a copied calendar and a derived calendar is how they are affected by changes to the original. If the original calendar is modified, the copied calendar remains unchanged. However, derived calendars are affected by changes made to the original, unless an exception is defined.
+The difference between a copied and a derived calendar is based on the changes in the original. In relation to copies, if the original
+is modified, the copy is not affected. However, derived calendars are affected by changes made to the original.
 
-A common use case for copied calendars is when you have a calendar for one location, such as "Pontevedra," and you need a similar calendar for another location, such as "A Coruña," where most of the features are the same. However, changes to one calendar should not affect the other.
+An example of using a copied calendar is having a calendar for "Pontevedra" and needing a calendar for "A Coruña", for which most of
+the features would be the same. However, changes on one calendar should not be reflected in the other.
 
-To create a copied calendar:
+To create a copied calendar in the program, it is necessary to do the following:
 
-*   Go to the *Administration* menu.
-*   Click the *Calendar administration* option.
-*   Select the calendar you want to copy and click the "Create" button.
-*   The system will display an editing form with the same characteristics as the form used to create a calendar from scratch, except that the proposed exceptions and the working hours per weekday will be based on the original calendar.
+* Go to the *Administration* menu.
+* Click the Calendar administration procedure.
+* Choose one of the calendars to be the basis for a derived calendar and click the "Create" button.
+* Once this procedure has been carried out, the system shows an editing form with the same characteristics as the forms used to create forms from scratch, with the difference that the proposed exceptions and the hours per weekday are based on the original calendar.
 
-Default Calendar
+Default calendar
 ----------------
 
-One of the existing calendars can be designated as the default calendar. This calendar will be automatically assigned to any entity in the system that is managed with calendars unless a different calendar is specified.
+One of the existing calendars in the system can be marked as the default calendar.
+This calendar is the one that will be designated to any entity in the system that is managed with calendars.
 
-To set up a default calendar:
+The following must be carried out to set up a default calendar:
 
-*   Go to the *Administration* menu.
-*   Click the *Configuration* option.
-*   In the *Default calendar* field, select the calendar you want to use as the program's default calendar.
-*   Click *Save*.
+* Go to the *Administration* menu.
+* Click the *Configuration* procedure.
+* Where *Default calendar* appears, select the calendar to be used as the program's default calendar.
+* Click *Save*.
 
 .. figure:: images/default-calendar.png
    :scale: 50
 
-   Setting a Default Calendar
+   Creating a default calendar
 
-Assigning a Calendar to Resources
+Assigning a calendar to resources
 ---------------------------------
 
-Resources can only be activated (i.e., have available working hours) if they have an assigned calendar with a valid activation period. If no calendar is assigned to a resource, the default calendar is assigned automatically, with an activation period that begins on the start date and has no expiry date.
+Resources can only be activated, i.e. available working hours, if they have an assigned calendar with a valid activation period.
+If no calendar is assigned to resources, the default calendar is assigned with an activation period that begins on the start
+date and does not have an expiry date.
 
 .. figure:: images/resource-calendar.png
    :scale: 50
 
-   Resource Calendar
+   Calendar of resources
 
-However, you can delete the calendar that has been previously assigned to a resource and create a new calendar based on an existing one. This allows for complete customization of calendars for individual resources.
+However, users can delete the calendar that has been previously assigned to a resource and create a new calendar based on one that already exists.
+Consequently, resources can be fully personalised in relation to calendars.
 
-To assign a calendar to a resource:
+The following steps have to be carried out to assign a calendar:
 
-*   Go to the *Edit resources* option.
-*   Select a resource and click *Edit*.
-*   Select the "Calendar" tab.
-*   The calendar, along with its exceptions, working hours per day, and activation periods, will be displayed.
-*   Each tab will have the following options:
+* Go to the Edit resources option.
+* Choose a resource and click edit.
+* Select the "Calendar" tab.
+* A calendar with the exceptions, workable hours per day and activation periods will then appear on the previous tab.
+* Each tab will have:
 
-    *   **Exceptions:** Define exceptions and the period to which they apply, such as holidays, public holidays, or different workdays.
-    *   **Working Week:** Modify the working hours for each weekday (Monday, Tuesday, etc.).
-    *   **Activation Periods:** Create new activation periods to reflect the start and end dates of contracts associated with the resource. See the following image.
+   * Exceptions: Users can choose the kind of exception and a period to which it applies in order to include holidays, public holidays, different workdays, etc.
+   * Working week: Users can change the hours worked during the different weekdays (Monday, Tuesday, etc.).
+   * Activation periods: Users can create new activation periods that reflect the start and end dates of the contracts associated with the resource. See the following image.
 
-*   Click *Save* to store the information.
-*   Click *Delete* if you want to change the calendar assigned to a resource.
+* Users need to click *Save* to store information.
+* Users can click *Delete* if they want to change the calendar assigned to a resource.
 
 .. figure:: images/new-resource-calendar.png
    :scale: 50
 
-   Assigning a New Calendar to a Resource
+   Assigning new calendars to resources
 
-Assigning Calendars to Orders
+Assigning calendars to orders
 -----------------------------
 
-Projects can have a different calendar than the default calendar. To change the calendar for an order:
+Projects can have a different calendar to the default calendar. Users need to do the following to change the calendar for the order:
 
-*   Access the order list in the company overview.
-*   Edit the order in question.
-*   Access the "General information" tab.
-*   Select the calendar to be assigned from the drop-down menu.
-*   Click "Save" or "Save and continue."
+   * Access the order list in the company overview.
+   * Edit the order in question.
+   * Access the "General information" tab.
+   * Select the calendar to be assigned on the drop-down menu.
+   * Click "Save" or "Save and continue".
 
-Assigning Calendars to Tasks
+Assigning calendars to tasks
 ----------------------------
+In the same way that calendars can be assigned to resources or orders, users can carry out the same procedure for planned tasks.
+This procedure allows specific calendars to be defined for specific stages of a project. To carry out this procedure, it is necessary to:
 
-Similar to resources and orders, you can assign specific calendars to individual tasks. This allows you to define different calendars for specific stages of a project. To assign a calendar to a task:
+   * Access the planning of a project.
+   * Right click the task to which a calendar is to be assigned.
+   * Select the "Assign calendar" procedure.
+   * Select the calendar to be assigned to the task.
+   * Click *Accept*.
 
-*   Access the planning view of a project.
-*   Right-click the task to which you want to assign a calendar.
-*   Select the "Assign calendar" option.
-*   Select the calendar to be assigned to the task.
-*   Click *Accept*.

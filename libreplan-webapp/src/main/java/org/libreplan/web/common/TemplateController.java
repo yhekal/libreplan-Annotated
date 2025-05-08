@@ -120,7 +120,7 @@ public class TemplateController extends GenericForwardComposer {
         BandboxSearch scenarioBandboxSearch = (BandboxSearch) window.getFellow("scenarioBandboxSearch");
         Scenario scenario = (Scenario) scenarioBandboxSearch.getSelectedElement();
 
-        templateModel.setScenario(SecurityUtils.getSessionUserLoginName(), scenario, new IOnFinished() {
+        templateModel.setScenario(SecurityUtils.getSessionUserLoginName(), scenario, new IOnFinished() { // &line[getSessionUserLoginName]
             @Override
             public void onWithoutErrorFinish() {
                 window.setVisible(false);

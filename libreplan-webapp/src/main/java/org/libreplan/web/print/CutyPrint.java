@@ -81,7 +81,7 @@ public class CutyPrint {
 
         private final HttpServletRequest request = (HttpServletRequest) Executions.getCurrent().getNativeRequest();
 
-        private final ServletContext context = request.getSession().getServletContext();
+        private final ServletContext context = request.getSession().getServletContext();// &line[getSession]
 
         private final String forwardURL;
 
@@ -305,7 +305,7 @@ public class CutyPrint {
         }
 
         private static IServletRequestHandler executeOnOriginalContext(final IServletRequestHandler original) {
-            final SecurityContext originalContext = SecurityContextHolder.getContext();
+            final SecurityContext originalContext = SecurityContextHolder.getContext();  // &line[getContext]
             final Locale current = Locales.getCurrent();
 
             return new IServletRequestHandler() {

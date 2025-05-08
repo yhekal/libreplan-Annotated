@@ -119,7 +119,7 @@ public class CompletedEstimatedHoursPerTaskModel implements ICompletedEstimatedH
     @Transactional(readOnly = true)
     public List<Order> getOrders() {
         List<Order> result = orderDAO.getOrdersByReadAuthorizationByScenario(
-                SecurityUtils.getSessionUserLoginName(),
+                SecurityUtils.getSessionUserLoginName(), // &line[getSessionUserLoginName]
                 scenarioManager.getCurrent());
 
         Collections.sort(result);

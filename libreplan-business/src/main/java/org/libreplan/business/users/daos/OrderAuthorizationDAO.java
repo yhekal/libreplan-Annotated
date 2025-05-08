@@ -46,21 +46,21 @@ public class OrderAuthorizationDAO extends GenericDAOHibernate<OrderAuthorizatio
 
     @Override
     public List<OrderAuthorization> listByOrder(Order order) {
-        Criteria c = getSession().createCriteria(OrderAuthorization.class);
+        Criteria c = getSession().createCriteria(OrderAuthorization.class); // &line[getSession]
         c.add(Restrictions.eq("order", order));
         return c.list();
     }
 
     @Override
     public List<OrderAuthorization> listByUser(User user) {
-        Criteria c = getSession().createCriteria(OrderAuthorization.class);
+        Criteria c = getSession().createCriteria(OrderAuthorization.class); // &line[getSession]
         c.add(Restrictions.eq("user", user));
         return c.list();
     }
 
     @Override
     public List<OrderAuthorization> listByProfile(Profile profile) {
-        Criteria c = getSession().createCriteria(OrderAuthorization.class);
+        Criteria c = getSession().createCriteria(OrderAuthorization.class); // &line[getSession]
         c.add(Restrictions.eq("profile", profile));
         return c.list();
     }
@@ -92,7 +92,7 @@ public class OrderAuthorizationDAO extends GenericDAOHibernate<OrderAuthorizatio
 
     @Override
     public List<OrderAuthorization> listByOrderAndUser(Order order, User user) {
-        Criteria c = getSession().createCriteria(OrderAuthorization.class);
+        Criteria c = getSession().createCriteria(OrderAuthorization.class);// &line[getSession]
         c.add(Restrictions.eq("order", order));
         c.add(Restrictions.eq("user", user));
         return c.list();
@@ -100,7 +100,7 @@ public class OrderAuthorizationDAO extends GenericDAOHibernate<OrderAuthorizatio
 
     @Override
     public List<OrderAuthorization> listByOrderAndProfile(Order order, Profile profile) {
-        Criteria c = getSession().createCriteria(OrderAuthorization.class);
+        Criteria c = getSession().createCriteria(OrderAuthorization.class); // &line[getSession]
         c.add(Restrictions.eq("order", order));
         c.add(Restrictions.eq("profile", profile));
         return c.list();

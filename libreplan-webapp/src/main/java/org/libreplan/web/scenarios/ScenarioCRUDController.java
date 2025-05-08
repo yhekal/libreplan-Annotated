@@ -178,7 +178,7 @@ public class ScenarioCRUDController extends BaseCRUDController<Scenario> {
                         }
 
                         private void connectTo(Scenario scenario) {
-                            templateModel.setScenario(SecurityUtils.getSessionUserLoginName(), scenario,
+                            templateModel.setScenario(SecurityUtils.getSessionUserLoginName(), scenario, // &line[getSessionUserLoginName]
                                     new IOnFinished() {
                                         @Override
                                         public void onWithoutErrorFinish() {

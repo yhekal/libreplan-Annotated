@@ -75,10 +75,11 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
         Validate.notNull(entityClass);
         this.entityClass = entityClass;
     }
-
+    // &begin[getSession]
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
+    // &end[getSession]
 
     public Class<E> getEntityClass() {
         return entityClass;
@@ -92,12 +93,12 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
      * Save works here to reattach the object as well as saving.
      */
     public void save(E entity) throws ValidationException {
-        getSession().saveOrUpdate(entity);
+        getSession().saveOrUpdate(entity); // &line[getSession]
         entity.validate();
     }
 
     public void saveWithoutValidating(E entity) {
-        getSession().saveOrUpdate(entity);
+        getSession().saveOrUpdate(entity); // &line[getSession]
     }
 
     public void reattachUnmodifiedEntity(E entity) {
@@ -105,11 +106,11 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
             return;
         }
         // TODO resolve deprecated
-        getSession().lock(entity, LockMode.NONE);
+        getSession().lock(entity, LockMode.NONE); // &line[getSession]
     }
 
     public E merge(E entity) {
-        return entityClass.cast(getSession().merge(entity));
+        return entityClass.cast(getSession().merge(entity)); // &line[getSession]
     }
 
     public void checkVersion(E entity) {
@@ -139,7 +140,7 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
         }
 
         /* Check version */
-        Long versionValueInDB = (Long) getSession()
+        Long versionValueInDB = (Long) getSession() // &line[getSession]
                 .createCriteria(entityClass)
                 .add(Restrictions.idEq(id))
                 .setProjection(Projections.property("version"))
@@ -157,7 +158,7 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
 
     public void lock(E entity) {
         // TODO resolve deprecated
-        getSession().lock(entity, LockMode.UPGRADE);
+        getSession().lock(entity, LockMode.UPGRADE); // &line[getSession]
 
     }
 
@@ -165,7 +166,7 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
     @Transactional(readOnly = true)
     public E find(PK id) throws InstanceNotFoundException {
 
-        E entity = (E) getSession().get(entityClass, id);
+        E entity = (E) getSession().get(entityClass, id); // &line[getSession]
 
         if ( entity == null ) {
             throw new InstanceNotFoundException(id, entityClass.getName());
@@ -186,7 +187,7 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
 
     public boolean exists(final PK id) {
 
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(entityClass)
                 .add(Restrictions.idEq(id))
                 .setProjection(Projections.id())
@@ -195,7 +196,7 @@ public class GenericDAOHibernate<E extends BaseEntity, PK extends Serializable> 
     }
 
     public void remove(PK id) throws InstanceNotFoundException {
-        getSession().delete(find(id));
+        getSession().delete(find(id)); // &line[getSession]
     }
 
     @SuppressWarnings("unchecked")

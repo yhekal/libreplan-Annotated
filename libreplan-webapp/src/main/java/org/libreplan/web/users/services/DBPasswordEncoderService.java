@@ -39,20 +39,26 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  * @author Fernando Bellas Permuy <fbellas@udc.es>
  */
+
+// &begin[DBPasswordEncoderService]
 public class DBPasswordEncoderService implements IDBPasswordEncoderService {
 
     private SaltSource saltSource;
     // TODO resolve deprecated
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder; // &line[PasswordEncoder]
 
+    // &begin[setSaltSource]
     public void setSaltSource(SaltSource saltSource) {
-        this.saltSource = saltSource;
+        this.saltSource = saltSource;  // &line[saltSource]
     }
+    // &end[setSaltSource]
 
     // TODO resolve deprecated
+// &begin[setPasswordEncoder]
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
+    // &end[setPasswordEncoder]
 
     @Override
     /**
@@ -60,6 +66,8 @@ public class DBPasswordEncoderService implements IDBPasswordEncoderService {
      * configured salt source is <code>ReflectionSaltSource</code>
      * (which must be configured to use "username" property as a salt).
      */
+
+            // &begin[encodePassword]
     public String encodePassword(String clearPassword, String loginName) {
 
         /*
@@ -73,11 +81,12 @@ public class DBPasswordEncoderService implements IDBPasswordEncoderService {
         Object salt = null;
 
         if ( saltSource != null ) {
-            salt = saltSource.getSalt(userDetails);
+            salt = saltSource.getSalt(userDetails);  // &line[getSalt]
         }
 
-        return passwordEncoder.encodePassword(clearPassword, salt);
+        return passwordEncoder.encodePassword(clearPassword, salt); // &line[PasswordEncoder]
 
     }
-
+// &end[encodePassword]
 }
+// &end[DBPasswordEncoderService]

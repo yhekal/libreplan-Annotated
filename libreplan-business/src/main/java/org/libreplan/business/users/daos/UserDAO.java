@@ -57,7 +57,7 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
     @Transactional(readOnly = true)
     public User findByLoginName(String loginName) throws InstanceNotFoundException {
 
-        User user = (User) getSession()
+        User user = (User) getSession() // &line[getSession]
                 .createCriteria(User.class)
                 .add(Restrictions.eq("loginName", loginName).ignoreCase())
                 .uniqueResult();
@@ -73,7 +73,7 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
     @Override
     public User findByLoginNameNotDisabled(String loginName) throws InstanceNotFoundException {
 
-        User user = (User) getSession()
+        User user = (User) getSession() // &line[getSession]
                 .createCriteria(User.class)
                 .add(Restrictions.eq("loginName", loginName).ignoreCase())
                 .add(Restrictions.eq("disabled", false))
@@ -112,7 +112,7 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
 
     @Override
     public List<User> listNotDisabled() {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(User.class)
                 .add(Restrictions.eq("disabled", false))
                 .list();
@@ -120,14 +120,14 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
 
     @Override
     public List<User> findByLastConnectedScenario(Scenario scenario) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(User.class)
                 .add(Restrictions.eq("lastConnectedScenario", scenario))
                 .list();
     }
 
     private List<OrderAuthorization> getOrderAuthorizationsByUser(User user) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(UserOrderAuthorization.class)
                 .add(Restrictions.eq("user", user))
                 .list();
@@ -150,7 +150,7 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
     }
 
     private List<User> getUsersOrderByLoginName() {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(User.class)
                 .addOrder(Order.asc("loginName"))
                 .list();
@@ -185,6 +185,6 @@ public class UserDAO extends GenericDAOHibernate<User, Long> implements IUserDAO
     @Override
     @Transactional(readOnly = true)
     public Number getRowCount() {
-        return (Number) getSession().createCriteria(User.class).setProjection(Projections.rowCount()).uniqueResult();
+        return (Number) getSession().createCriteria(User.class).setProjection(Projections.rowCount()).uniqueResult(); // &line[getSession]
     }
 }

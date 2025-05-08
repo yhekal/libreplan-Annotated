@@ -198,7 +198,7 @@ public class CustomMenuController extends Div implements IMenuItemsRegister {
     private static WebApplicationContext getSpringContext() {
         Execution current = Executions.getCurrent();
         HttpServletRequest request = (HttpServletRequest) current.getNativeRequest();
-        ServletContext context = request.getSession().getServletContext();
+        ServletContext context = request.getSession().getServletContext(); // &line[getSession]
 
         return WebApplicationContextUtils.getWebApplicationContext(context);
     }

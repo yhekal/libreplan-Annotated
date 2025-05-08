@@ -1,6 +1,9 @@
-Subcontractor Work Description
+Subcontractor work description
 ###############################
 
-While it is possible to leave this field empty, doing so can lead to errors in communication functionality when multiple empty fields exist.
+It is possible to keep this field empty.
 
-Therefore, we strongly recommend always using a unique work description.
+But if you do, you could get errors in communication functionality when multiple empty fields exist.
+
+We recommend to always use a unique work description.
+

@@ -1,4 +1,4 @@
-Hours Worked by Resource Report
+Hours Worked By Resource Report
 ###############################
 
 .. contents::
@@ -6,28 +6,28 @@ Hours Worked by Resource Report
 Purpose
 =======
 
-This report extracts a list of tasks and the time resources have dedicated to them within a specified period. Several filters allow users to refine the query to obtain only the desired information and exclude extraneous data.
+This report allows to extract a list of the tasks and time devoted to them by workers in a period of time. There are several filters which allow users to adjust the query to get just the wanted information and avoiding extra data.
 
-Input Parameters and Filters
+Input parameters and filters
 ============================
 
-* **Dates**.
-    * *Type*: Optional.
-    * *Two date fields*:
-        * *Start Date:* This is the earliest date for work reports to be included. Work reports with dates earlier than the *Start Date* are excluded. If this parameter is left blank, work reports are not filtered by *Start Date*.
-        * *End Date:* This is the latest date for work reports to be included. Work reports with dates later than the *End Date* are excluded. If this parameter is left blank, work reports are not filtered by *End Date*.
+   * **Dates**.
+      * *Type*: Optional.
+      * *Two date fields*:
+         * *Start Date.* This is the minimum date of the work reports which are wanted. Work reports with an earlier date than the *start date* are ignored. If this parameter is not filled, there is no filtering of work reports by *start date*.
+         * *End Date.* This is the maximum date of the work reports which will be included in the results. Work reports with a later date than the *end date* will be ignored. If this parameter is not filled, there is no filtering of work reports by *end date*.
 
-*   **Filter by Workers:**
-    *   *Type:* Optional.
-    *   *How it works:* You can select one or more workers to restrict the work reports to the time tracked by those specific workers. To add a worker as a filter, search for them in the selector and click the *Add* button. If this filter is left empty, work reports are retrieved regardless of the worker.
+   * **Filter by workers**
+      * *Type*: Optional.
+      * *How it works*: You can select one or several workers to restrict the work reports to the time tracking of that particular worker. You can add a worker to be used as a filter by searching them in the selector and by pressing the *Add* button.  If you leave it empty, the work reports are retrieved independently of the worker.
 
-*   **Filter by Labels:**
-    *   *Type:* Optional.
-    *   *How it works:* You can add one or more labels to use as filters by searching for them in the selector and clicking the *Add* button. These labels are used to select the tasks to be included in the results when calculating the hours dedicated to them. This filter can be applied to timesheets, tasks, both, or neither.
+   * **Filter by labels**
+      * *Type:* Optional.
+      * *How it works*: You can add one or several labels to be used as filter by searching them in the selector and by pressing the *Add* button. They are used to select the tasks that will be included in the results to compute the hours devoted in them. This filter can be applied to timesheets, tasks, both, or any.
 
-*   **Filter by Criteria:**
-    *   *Type:* Optional.
-    *   *How it works:* You can select one or more criteria by searching for them in the selector and then clicking the *Add* button. These criteria are used to select the resources that satisfy at least one of them. The report will show all the time dedicated by the resources that meet one of the selected criteria.
+   * **Filter by criteria**
+      * *Type:* Optional.
+      * *How it works:* You can select one or several criteria by searching them in the selector and, then, by clicking on the *Add* button. These criteria are used to select the resources that satisfy at least one of them. The report will show all the time devoted by the resources satisfying one of the criteria of the filtering.
 
 Output
 ======
@@ -35,34 +35,33 @@ Output
 Heading
 -------
 
-The report heading displays the filters that were configured and applied to the current report.
+In the heading of the report is informed about the filters that were configured and that were applied in the current report extract.
 
-Footer
-------
-
-The date on which the report was generated is listed in the footer.
+Foot page
+---------
+The date on which the report was run is listed.
 
 Body
 ----
 
-The report body consists of several groups of information.
+The body of the report consists of several groups of information.
 
-*   The first level of aggregation is by resource. All the time dedicated by a resource is shown together below the header. Each resource is identified by:
+* There is a first aggretation of information per resource. All the time devoted by a resource is showed together below the header. Each resource it is identified by:
 
-    *   *Worker:* Surname, First Name.
-    *   *Machine:* Name.
+   * *Worker*: Surname, Firstname
+   * *Machine*: Name.
 
-    A summary line shows the total number of hours worked by the resource.
+It is showed a summing-up line with the total number of hours worked by the resource.
 
-*   The second level of grouping is by *date*. All the reports from a specific resource on the same date are shown together.
+* There is a second grouping level consisting of the *date*. All the reports coming from a concrete resource at the same date are showed together.
 
-    A summary line shows the total number of hours worked by the resource on that date.
+There is a summing-up line with the total number of hours worked by the resource.
 
-*   The final level lists the work reports for the worker on that day. The information displayed for each work report line is:
+* There is a last level at which there are listed the work reports belonging to the same day for the worker. The information which is displayed for each work report line is:
 
-    *   *Task Code:* The code of the task to which the tracked hours are attributed.
-    *   *Task Name:* The name of the task to which the tracked hours are attributed.
-    *   *Starting Time:* This is optional. It is the time at which the resource began working on the task.
-    *   *Ending Time:* This is optional. It is the time at which the resource finished working on the task on the specified date.
-    *   *Text Fields:* This is optional. If the work report line has text fields, the filled values are shown here. The format is: <Name of the text field>:<Value>
-    *   *Labels:* This depends on whether the work report model has a label field in its definition. If there are multiple labels, they are shown in the same column. The format is: <Name of the label type>:<Value of the label>
+   * *Task code* the tracked hours impute.
+   * *Task name* the tracked hours impute.
+   * *Starting time*. It is not mandatory. It is the starting time at which the resource began doing the work tracked in the task.
+   * *Ending time*. It is not mandatory. It is the ending time until which the resource works in the task at the date specified.
+   * *Textfields*. It is optional. If the work report line has text fields the filled values, they are showed here. The format is: <Name of the text field>:<Value>
+   * *Labels*. It depends on if the work report model has a label field in its definition. If there are several labels they are showed in the same column. The format is: <Name of the label type>:<Value of the label>

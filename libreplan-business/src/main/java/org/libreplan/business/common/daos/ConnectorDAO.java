@@ -49,7 +49,7 @@ public class ConnectorDAO extends GenericDAOHibernate<Connector, Long> implement
     @Override
     @Transactional(readOnly = true)
     public Connector findUniqueByName(String name) {
-        Criteria c = getSession().createCriteria(Connector.class).add(Restrictions.eq("name", name));
+        Criteria c = getSession().createCriteria(Connector.class).add(Restrictions.eq("name", name)); // &line[getSession]
 
         return (Connector) c.uniqueResult();
     }

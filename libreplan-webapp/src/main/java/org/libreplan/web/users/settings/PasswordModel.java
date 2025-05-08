@@ -109,7 +109,7 @@ public class PasswordModel implements IPasswordModel {
     @Override
     @Transactional(readOnly = true)
     public void initEditLoggedUser() {
-        User user = findByLoginUser(SecurityUtils.getSessionUserLoginName());
+        User user = findByLoginUser(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
         this.user = getFromDB(user);
     }
 
@@ -139,20 +139,22 @@ public class PasswordModel implements IPasswordModel {
     }
 
     @Override
+            // &begin[validateCurrentPassword]
     public boolean validateCurrentPassword(String value)
-    {
-        String currentPasswordEncoded = dbPasswordEncoderService.encodePassword((String)value, user.getLoginName());
-        if(!(currentPasswordEncoded).equals(user.getPassword())) {
+    {   // &line[encodePassword]
+        String currentPasswordEncoded = dbPasswordEncoderService.encodePassword((String)value, user.getLoginName()); // &line[getLoginName]
+        if(!(currentPasswordEncoded).equals(user.getPassword())) {  // &line[getPassword]
             return false;
         }
         return true;
     }
-
+    // &end[validateCurrentPassword]
     @Transactional(readOnly = true)
     @Override
+            // &begin[isLdapAuthEnabled]
     public boolean isLdapAuthEnabled() {
         return configurationDAO.getConfiguration().getLdapConfiguration()
-                .getLdapAuthEnabled();
+                .getLdapAuthEnabled();  // &line[getLdapAuthEnabled]
     }
-
+    // &end[isLdapAuthEnabled]
 }

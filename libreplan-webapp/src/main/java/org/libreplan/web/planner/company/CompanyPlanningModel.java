@@ -199,7 +199,7 @@ public class CompanyPlanningModel implements ICompanyPlanningModel {
 
         User user;
         try {
-            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName());
+            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
         } catch (InstanceNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -711,7 +711,7 @@ public class CompanyPlanningModel implements ICompanyPlanningModel {
     }
 
     private List<Order> getOrders(TaskGroupPredicate predicate) {
-        String username = SecurityUtils.getSessionUserLoginName();
+        String username = SecurityUtils.getSessionUserLoginName(); // &line[getSessionUserLoginName]
 
         Date startDate = predicate.getStartDate();
         Date endDate = predicate.getFinishDate();
@@ -784,7 +784,7 @@ public class CompanyPlanningModel implements ICompanyPlanningModel {
             }
 
             List<Order> list = orderDAO.getOrdersByReadAuthorizationByScenario(
-                    SecurityUtils.getSessionUserLoginName(), currentScenario);
+                    SecurityUtils.getSessionUserLoginName(), currentScenario); // &line[getSessionUserLoginName]
 
             for (Order each : list) {
                 each.useSchedulingDataFor(currentScenario, false);

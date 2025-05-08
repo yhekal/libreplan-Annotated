@@ -47,7 +47,7 @@ public class EmailTemplateDAO extends GenericDAOHibernate<EmailTemplate, Long> i
     @Override
     @Transactional(readOnly = true)
     public List<EmailTemplate> findByType(EmailTemplateEnum type) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(EmailTemplate.class)
                 .add(Restrictions.eq("type", type))
                 .list();
@@ -56,7 +56,7 @@ public class EmailTemplateDAO extends GenericDAOHibernate<EmailTemplate, Long> i
     @Override
     @Transactional(readOnly = true)
     public EmailTemplate findByTypeAndLanguage(EmailTemplateEnum type, Language language) {
-        return (EmailTemplate) getSession()
+        return (EmailTemplate) getSession() // &line[getSession]
                 .createCriteria(EmailTemplate.class)
                 .add(Restrictions.eq("type", type))
                 .add(Restrictions.eq("language", language))

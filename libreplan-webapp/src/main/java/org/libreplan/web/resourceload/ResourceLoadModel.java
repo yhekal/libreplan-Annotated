@@ -1058,7 +1058,7 @@ public class ResourceLoadModel implements IResourceLoadModel {
 
         User user;
         try {
-            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName());
+            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
         } catch (InstanceNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -1071,7 +1071,7 @@ public class ResourceLoadModel implements IResourceLoadModel {
     public User getUser() {
         User user;
         try {
-            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName());
+            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
         } catch (InstanceNotFoundException e) {
             throw new RuntimeException(e);
         }

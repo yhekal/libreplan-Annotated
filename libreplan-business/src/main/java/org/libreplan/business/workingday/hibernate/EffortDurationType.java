@@ -53,11 +53,12 @@ public class EffortDurationType implements UserType {
         return Objects.equals(x, y);
     }
 
+    // &begin[hashCode]
     @Override
     public int hashCode(Object x) throws HibernateException {
         return x.hashCode();
     }
-
+    // &end[hashCode]
     @Override
     public Object nullSafeGet(ResultSet rs, String[] names,
             SessionImplementor session, Object owner)
@@ -72,6 +73,7 @@ public class EffortDurationType implements UserType {
 
     @Override
     public void nullSafeSet(PreparedStatement st, Object value, int index,
+
             SessionImplementor session) throws HibernateException, SQLException {
         EffortDuration duration = (EffortDuration) value;
         Integer seconds = duration != null ? duration.getSeconds() : null;

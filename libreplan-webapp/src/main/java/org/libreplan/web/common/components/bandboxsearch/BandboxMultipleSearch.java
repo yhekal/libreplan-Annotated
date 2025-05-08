@@ -299,7 +299,7 @@ public class BandboxMultipleSearch extends HtmlMacroComponent {
 
     private Object getBean(String beanName) {
         HttpServletRequest servletRequest = (HttpServletRequest) Executions.getCurrent().getNativeRequest();
-        ServletContext servletContext = servletRequest.getSession().getServletContext();
+        ServletContext servletContext = servletRequest.getSession().getServletContext(); // &line[getSession]
 
         WebApplicationContext webApplicationContext =
                 WebApplicationContextUtils.getWebApplicationContext(servletContext);

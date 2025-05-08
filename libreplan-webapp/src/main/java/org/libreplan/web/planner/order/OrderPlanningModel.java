@@ -309,7 +309,7 @@ public class OrderPlanningModel implements IOrderPlanningModel {
         User user;
 
         try {
-            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName());
+            user = this.userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
         } catch (InstanceNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -929,7 +929,7 @@ public class OrderPlanningModel implements IOrderPlanningModel {
     }
 
     private boolean thereIsWriteAuthorizationFor(Order order) {
-        String loginName = SecurityUtils.getSessionUserLoginName();
+        String loginName = SecurityUtils.getSessionUserLoginName(); // &line[getSessionUserLoginName]
         try {
             User user = userDAO.findByLoginName(loginName);
             for (OrderAuthorization authorization : orderAuthorizationDAO.listByOrderUserAndItsProfiles(order, user)) {

@@ -175,7 +175,7 @@ public class GatheredUsageStats {
 
         // Make hash of ip + hostname
         try {WebAuthenticationDetails details =
-                (WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
+                (WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails(); // &line[getAuthentication]
 
          ip = details.getRemoteAddress();
             Execution execution = Executions.getCurrent();
@@ -196,8 +196,8 @@ public class GatheredUsageStats {
 
         try {
             byte[] bytesOfMessage = message.getBytes("UTF-8");
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            encoded = md5.digest(bytesOfMessage);
+            MessageDigest md5 = MessageDigest.getInstance("MD5"); // &line[CryptographicHashing_getInstance_L]
+            encoded = md5.digest(bytesOfMessage); // &line[CryptographicHashing_digest_L]
 
             // Convert bytes to hex format
             sb = new StringBuilder();

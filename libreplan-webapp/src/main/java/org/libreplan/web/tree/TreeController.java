@@ -91,7 +91,7 @@ public abstract class TreeController<T extends ITreeNode<T>> extends GenericForw
 
     private static final ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 
-    private static final Validator validator = validatorFactory.getValidator();
+    private static final Validator validator = validatorFactory.getValidator(); // &line[getValidator]
 
     private static final Log LOG = LogFactory.getLog(TreeController.class);
 

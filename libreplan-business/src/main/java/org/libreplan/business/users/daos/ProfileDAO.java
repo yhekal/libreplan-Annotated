@@ -70,7 +70,7 @@ public class ProfileDAO extends GenericDAOHibernate<Profile, Long> implements
     public Profile findByProfileName(String profileName)
         throws InstanceNotFoundException{
 
-        Criteria c = getSession().createCriteria(Profile.class);
+        Criteria c = getSession().createCriteria(Profile.class); // &line[getSession]
         c.add(Restrictions.eq("profileName", profileName).ignoreCase());
         Profile profile = (Profile) c.uniqueResult();
 
@@ -92,7 +92,7 @@ public class ProfileDAO extends GenericDAOHibernate<Profile, Long> implements
 
     @Override
     public List<OrderAuthorization> getOrderAuthorizationsByProfile(Profile profile) {
-        List orderAuthorizations = getSession()
+        List orderAuthorizations = getSession() // &line[getSession]
                 .createCriteria(ProfileOrderAuthorization.class)
                 .add(Restrictions.eq("profile", profile)).list();
         return orderAuthorizations;
@@ -102,7 +102,7 @@ public class ProfileDAO extends GenericDAOHibernate<Profile, Long> implements
     public void checkHasUsers(Profile profile) throws ValidationException {
         // Query against a collection of elements
         // http://community.jboss.org/message/353859#353859
-        Query query = getSession().createQuery(
+        Query query = getSession().createQuery( // &line[getSession]
                 "FROM User user JOIN user.profiles up WHERE up IN (:profiles)");
         query.setParameterList("profiles", Collections.singleton(profile));
         if (!query.list().isEmpty()) {

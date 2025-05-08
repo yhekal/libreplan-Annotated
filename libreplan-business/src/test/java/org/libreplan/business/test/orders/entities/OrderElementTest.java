@@ -138,7 +138,8 @@ public class OrderElementTest {
 
     private Division division = division(4);
 
-    private Validator orderElementValidator = Validation.buildDefaultValidatorFactory().getValidator();
+
+    private Validator orderElementValidator = Validation.buildDefaultValidatorFactory().getValidator(); // &line[getValidator]
 
     private static OrderLine givenOrderLine(String name, String code, Integer hours) {
         OrderLine orderLine = OrderLine.createOrderLineWithUnfixedPercentage(hours);

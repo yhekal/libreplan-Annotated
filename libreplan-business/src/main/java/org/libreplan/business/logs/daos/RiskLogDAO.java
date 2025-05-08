@@ -47,7 +47,7 @@ public class RiskLogDAO extends IntegrationEntityDAO<RiskLog> implements
 
     @Override
     public List<RiskLog> getByParent(Order order) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(RiskLog.class)
                 .add(Restrictions.eq("project", order))
                 .list();

@@ -8,24 +8,25 @@ About
 Copyright
 =========
 
-Copyright (C) 2014-2025 i2rs ; Coderial; Igalia, S.L.; Wireless Galicia, S.L.; CafédeRed Solutions, S.L.
-
-Copyright (C) 2012 Igalia, S.L.; Wireless Galicia, S.L.; CafédeRed Solutions, S.L.
-
-Copyright (C) 2011 Igalia, S.L.; Wireless Galicia, S.L.; ComtecSF, S.L.; CafédeRed Solutions, S.L.
+Copyright (C) 2009-2010 Fundación para o Fomento da Calidade Industrial e
+Desenvolvemento Tecnolóxico de Galicia
 
 Copyright (C) 2010 Igalia, S.L.; Wireless Galicia, S.L.
 
-Copyright (C) 2009-2010 Fundación para o Fomento da Calidade Industrial e Desenvolvemento Tecnolóxico de Galicia
+Copyright (C) 2011 Igalia, S.L.; Wireless Galicia, S.L.; ComtecSF, S.L.;
+CafédeRed Solutions, S.L.
+
+Copyright (C) 2012 Igalia, S.L.; Wireless Galicia, S.L.; CafédeRed Solutions,
+S.L.
 
 
-License
+Licence
 =======
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -42,16 +43,16 @@ Written by
 LibrePlan Team
 --------------
 
-* Jeroen Baten <jeroen@libreplan.dev>
+* Jeroen Baten <jeroen@libreplan-enterprise.com>
 * Edwin Zuijdendorp <edwin@zuydendorp.nl>
+* Bjørn Vos <bjorn@libreplan-enterprise.com>
 * Philippe Poumaroux <philippe.poumaroux@free.fr>
+* Vova Perebykivskyi <vova@libreplan-enterprise.com>
 * Paul Luchyn <ddiamondbbackk@gmail.com>
 
 Previous Team Members
 ---------------------
 
-* Vova Perebykivskyi <vova@libreplan-enterprise.com>
-* Bjørn Vos <bjorn@libreplan-enterprise.com>
 * Fernando Bellas Permuy <fbellas@udc.es>
 * José María Casanova Crespo <jmcasanova@igalia.com>
 * Óscar González Fernández <ogonzalez@igalia.com>
@@ -107,14 +108,13 @@ Contributors
 * Adrián Pérez <aperez@igalia.com>
 
 
-Public Funding
+Public funding
 ==============
 
-This project currently accepts donations through the Open Collective organization <https://opencollective.com/LibrePlan>.
-
-Within the global scope that LibrePlan is designed for regarding planning management, a project was developed to solve some common planning problems.
-
-This project was partially financed by Xunta de Galicia, Ministerio de Industria, Turismo e Comercio, and by the European Union, Fondo Europeo de Desenvolvemento Rexional.
+Inside the global scope that LibrePlan is designed for regarding planning management,
+a project was developed to solve some common planning problems.
+This project is partially financed by Xunta de Galicia, Ministerio de Industria, Turismo e Comercio, and by the European Union,
+Fondo Europeo de Desenvolvemento Rexional.
 
 .. figure:: images/logos.png
 

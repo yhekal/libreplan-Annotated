@@ -134,7 +134,7 @@ public class WorkingArrangementsPerOrderModel implements
         Scenario currentScenario = scenarioManager.getCurrent();
         final List<Order> orders = orderDAO
                 .getOrdersByReadAuthorizationByScenario(
-                        SecurityUtils.getSessionUserLoginName(),
+                        SecurityUtils.getSessionUserLoginName(), // &line[getSessionUserLoginName]
                         currentScenario);
         for (Order each: orders) {
             initializeOrderElements(each.getOrderElements());

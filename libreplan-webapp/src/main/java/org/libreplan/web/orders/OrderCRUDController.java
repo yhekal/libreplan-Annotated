@@ -763,7 +763,7 @@ public class OrderCRUDController extends GenericForwardComposer {
 
         }
     }
-
+    // &begin[setupOrderAuthorizationController]
     public void setupOrderAuthorizationController() {
         if ( !confirmLastTab() ) {
             return;
@@ -785,7 +785,8 @@ public class OrderCRUDController extends GenericForwardComposer {
             Util.reloadBindings(orderElementAuthorizations);
         }
     }
-
+    // &end[setupOrderAuthorizationController]
+    // &begin[initOrderAuthorizations]
     private void initOrderAuthorizations() {
         Component orderElementAuthorizations = editWindow.getFellowIfAny("orderElementAuthorizations");
         final Order order = orderModel.getOrder();
@@ -799,7 +800,7 @@ public class OrderCRUDController extends GenericForwardComposer {
         Util.createBindingsFor(orderElementAuthorizations);
         Util.reloadBindings(orderElementAuthorizations);
     }
-
+    // &end[initOrderAuthorizations]
     public List<Order> getOrders() {
         return getOrdersFiltered();
     }
@@ -872,7 +873,7 @@ public class OrderCRUDController extends GenericForwardComposer {
         Tab previousTab = getCurrentTab();
         save(showSaveMessage);
 
-        if ( orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) {
+        if ( orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) { // &line[getSessionUserLoginName]
             refreshOrderWindow();
 
             // Come back to the current tab after initialize all tabs
@@ -1070,7 +1071,7 @@ public class OrderCRUDController extends GenericForwardComposer {
 
     public void schedule(Order order) {
         orderModel.useSchedulingDataForCurrentScenario(order);
-        if ( orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) {
+        if ( orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) { // &line[getSessionUserLoginName]
 
             if ( order.isScheduled() ) {
                 planningControllerEntryPoints.goToScheduleOf(order);
@@ -1109,7 +1110,7 @@ public class OrderCRUDController extends GenericForwardComposer {
     }
 
     public void checkUserCanRead(Order order) {
-        if ( !orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) {
+        if ( !orderModel.userCanRead(order, SecurityUtils.getSessionUserLoginName()) ) { // &line[getSessionUserLoginName]
             Messagebox.show(
                     _("Sorry, you do not have permissions to access this project"), _(INFORMATION),
                     Messagebox.OK, Messagebox.INFORMATION);

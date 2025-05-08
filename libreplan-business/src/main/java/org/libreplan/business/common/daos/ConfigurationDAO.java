@@ -56,13 +56,14 @@ public class ConfigurationDAO extends GenericDAOHibernate<Configuration, Long> i
 
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
+            // &begin[saveChangedDefaultPassword]
     public void saveChangedDefaultPassword(String user, boolean change) {
         user = user.substring(0, 1).toUpperCase() + user.substring(1).toLowerCase();
         String sql = "UPDATE Configuration e SET e.changedDefault" + user + "Password = :change";
 
-        Query query = getSession().createQuery(sql);
+        Query query = getSession().createQuery(sql); // &line[getSession]
         query.setParameter("change", change);
         query.executeUpdate();
     }
-
+// &end[saveChangedDefaultPassword]
 }

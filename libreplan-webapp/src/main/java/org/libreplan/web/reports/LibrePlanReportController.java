@@ -113,7 +113,7 @@ public abstract class LibrePlanReportController extends GenericForwardComposer<C
 
             } else {
                 /* In case when context of web server will be empty or libreplan-webapp or libreplan, or etc... */
-                String[] url = Executions.getCurrent().getSession().getWebApp().getUpdateURI().split("/");
+                String[] url = Executions.getCurrent().getSession().getWebApp().getUpdateURI().split("/"); // &line[getSession]
 
                 /* In case when string.split("/") returns string array with size 3 instead of 2  */
                 if ( url.length == 3 && "".equals(url[0]) && !"".equals(url[1]) ) {

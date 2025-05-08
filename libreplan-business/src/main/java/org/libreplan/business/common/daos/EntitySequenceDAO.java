@@ -62,7 +62,7 @@ public class EntitySequenceDAO extends GenericDAOHibernate<EntitySequence, Long>
             }
         }
 
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(EntitySequence.class)
                 .add(Restrictions.not(Restrictions.in("id", entitySequenceIds)))
                 .list();
@@ -82,7 +82,7 @@ public class EntitySequenceDAO extends GenericDAOHibernate<EntitySequence, Long>
     public EntitySequence getActiveEntitySequence(EntityNameEnum entityName)
             throws InstanceNotFoundException, NonUniqueResultException {
 
-        EntitySequence entitySequence = (EntitySequence) getSession()
+        EntitySequence entitySequence = (EntitySequence) getSession() // &line[getSession]
                 .createCriteria(EntitySequence.class)
                 .add(Restrictions.eq("entityName", entityName))
                 .add(Restrictions.eq("active", true))

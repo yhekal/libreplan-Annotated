@@ -200,7 +200,7 @@ public class OrderElementHistoricalStatisticsComponent extends
     private Object getBean(String classname) {
         HttpServletRequest servletRequest = (HttpServletRequest) Executions
                 .getCurrent().getNativeRequest();
-        ServletContext servletContext = servletRequest.getSession()
+        ServletContext servletContext = servletRequest.getSession() // &line[getSession]
                 .getServletContext();
         WebApplicationContext webApplicationContext = WebApplicationContextUtils
                 .getWebApplicationContext(servletContext);

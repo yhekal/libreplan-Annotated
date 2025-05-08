@@ -54,13 +54,14 @@ public final class NaiveTrustProvider extends Provider {
      * other high-security jvms
      **/
 
+    // &begin[NaiveTrustProvider]
     public NaiveTrustProvider() {
         super(
                 TRUST_PROVIDER_ID,
                 (double) 0.1,
                 "NaiveTrustProvider (provides all secure socket factories by ignoring problems in the chain of certificate trust)");
 
-        AccessController.doPrivileged(new PrivilegedAction() {
+        AccessController.doPrivileged(new PrivilegedAction() {  // &line[AccessControl_doPrivileged_L]
             public Object run() {
                 put("TrustManagerFactory."
                         + NaiveTrustManagerFactory.getAlgorithm(),
@@ -69,6 +70,7 @@ public final class NaiveTrustProvider extends Provider {
             }
         });
     }
+    // &end[NaiveTrustProvider]
 
     /**
      * This is the only method the client code need to call. Yup, just put
@@ -79,7 +81,7 @@ public final class NaiveTrustProvider extends Provider {
      *            set to true to always trust (set to false it not yet
      *            implemented)
      **/
-
+// &begin[setAlwaysTrust]
     public static void setAlwaysTrust(boolean enableNaiveTrustProvider) {
         if (enableNaiveTrustProvider) {
             Provider registered = Security.getProvider(TRUST_PROVIDER_ID);
@@ -93,7 +95,7 @@ public final class NaiveTrustProvider extends Provider {
                     "Disable Naive trust provider not yet implemented");
         }
     }
-
+// &end[setAlwaysTrust]
     /**
      * The factory for the NaiveTrustProvider
      **/
@@ -113,10 +115,12 @@ public final class NaiveTrustProvider extends Provider {
          * collection is just a single element array containing our
          * {@link NaiveTrustManager} class.
          **/
+// &begin[engineGetTrustManagers]
         protected TrustManager[] engineGetTrustManagers() {
             // Returns a new array of just a single NaiveTrustManager.
             return new TrustManager[] { new NaiveTrustManager() };
         }
+        // &end[engineGetTrustManagers]
 
         /**
          * Returns our "NaiveTrustAlgorithm" string.

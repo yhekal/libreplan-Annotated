@@ -125,7 +125,7 @@ public class OrderAuthorizationModel implements IOrderAuthorizationModel {
         initializeLists();
         //add write authorization for current user
         try {
-            User user = userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName());
+            User user = userDAO.findByLoginName(SecurityUtils.getSessionUserLoginName()); // &line[getSessionUserLoginName]
             UserOrderAuthorization orderAuthorization =
                 createUserOrderAuthorization(order, user);
             orderAuthorization.setAuthorizationType(OrderAuthorizationType.WRITE_AUTHORIZATION);

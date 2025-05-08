@@ -46,7 +46,7 @@ public class IssueLogDAO extends IntegrationEntityDAO<IssueLog> implements
 
     @Override
     public List<IssueLog> getByParent(Order order) {
-        return getSession()
+        return getSession() // &line[getSession]
                 .createCriteria(IssueLog.class)
                 .add(Restrictions.eq("project", order))
                 .list();

@@ -71,9 +71,9 @@ public abstract class BaseEntity implements INewObject {
 
     private static final Log LOG = LogFactory.getLog(BaseEntity.class);
 
-    private static final ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+    private static final ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory(); // &line[buildDefaultValidatorFactory]
 
-    private static final Validator validator = validatorFactory.getValidator();
+    private static final Validator validator = validatorFactory.getValidator(); // &line[getValidator]
 
     @OnCopy(Strategy.IGNORE)
     private Long id;
